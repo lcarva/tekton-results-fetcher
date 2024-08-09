@@ -40,8 +40,7 @@ while [ $count -lt $MINIMUM ]; do
         select(.spec.pipelineSpec != null) |
         select(.status.conditions[0].type == "Succeeded" and .status.conditions[0].status == "True") |
         select(.metadata.annotations["pipelinesascode.tekton.dev/repo-url"] != null) |
-        select(.metadata.namespace | endswith("-tenant")) |
-        .spec.pipelineSpec' | jq '.' > "${OUTPUT}"
+        select(.metadata.namespace | endswith("-tenant"))' | jq '.' > "${OUTPUT}"
 
     count="$(< "${OUTPUT}" jq -rs '. | length')"
     echo "DEBUG: Count is ${count}"
