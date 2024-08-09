@@ -14,7 +14,7 @@ PR_FILTER="$(echo -n 'data_type == "tekton.dev/v1beta1.PipelineRun"' | jq -Rrj '
 PAGE_SIZE=1000
 
 # The minimum amount of valid records to fetch
-MINIMUM=100
+MINIMUM=2000
 
 OUTPUT='pipelineruns.json'
 RECORDS_OUTPUT='records.json'
